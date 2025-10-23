@@ -63,64 +63,6 @@ server.registerResource(
     })
 );
 
-// 使用 Express 搭建一个 HTTP 接口作为 MCP 传输载体。
-// StreamableHTTPServerTransport 支持：
-// - 单次请求内处理 JSON-RPC 消息
-// - SSE（若使用 GET）支持事件流式推送
-// const app = express();
-// app.use(express.json());
-
-// // 提供 /mcp 路由处理 MCP 的 POST 请求。
-// // 每次请求创建新的 transport 避免 requestId 冲突（无持久会话）。
-// app.post('/mcp', async (req: express.Request, res: express.Response) => {
-//     // 创建传输层实例：
-//     // sessionIdGenerator: undefined => 不自动生成持久会话 ID
-//     // enableJsonResponse: true => 返回标准 JSON 结构而非只 SSE
-//     const transport = new StreamableHTTPServerTransport({
-//         sessionIdGenerator: undefined,
-//         enableJsonResponse: true
-//     });
-
-//     // 当响应关闭时，确保释放传输资源，避免内存泄漏。
-//     res.on('close', () => {
-//         transport.close();
-//     });
-
-//     // 将服务器与传输绑定，开始监听/发送消息。
-//     await server.connect(transport);
-
-//     // 处理当前请求的 JSON-RPC 消息体（req.body）。
-//     // transport.handleRequest 会解析 JSON、分发到注册的工具/资源等。
-//     await transport.handleRequest(req, res, req.body);
-// });
-
-// app.get('/mcp', async (req: express.Request, res: express.Response) => {
-//     const transport = new StreamableHTTPServerTransport({
-//         sessionIdGenerator: undefined,
-//         enableJsonResponse: false // SSE模式
-//     });
-
-//     res.on('close', () => {
-//         transport.close();
-//     });
-
-//     await server.connect(transport);
-//     await transport.handleRequest(req, res, req.body);
-// });
-
-// // 读取端口（支持环境变量 PORT），默认 3000。
-// const port = parseInt(process.env.PORT || '3000');
-
-// // 启动 HTTP 服务器并监听 /mcp 路径。
-// // 控制台打印启动提示，便于本地调试。
-// app.listen(port, () => {
-//     // console.error(`Demo MCP Server running on http://localhost:${port}/mcp`);
-// }).on('error', error => {
-//     // 监听服务器级错误，打印后退出进程（便于容器/进程管理器重启）。
-//     console.error('Server error:', error);
-//     process.exit(1);
-// });
-
 async function main() {
     const transport = new StdioServerTransport();
     await server.connect(transport);
