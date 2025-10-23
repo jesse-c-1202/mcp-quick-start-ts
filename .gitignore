@@ -1,0 +1,62 @@
+# CAP dssa
+_out
+*.db
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+db.sqlite*
+connection.properties
+default-*.json
+.env
+.cdsrc-private.json
+gen/
+node_modules/
+target/
+junit.xml
+jest_html_reporters.html
+/jest-html-reporters-attach
+
+# Web IDE, App Studio
+.che/
+.gen/
+
+# MTA
+*_mta_build_tmp
+*.mtar
+mta_archives/
+
+# Other
+.DS_Store
+*.orig
+*.log
+
+*.iml
+*.flattened-pom.xml
+
+# IDEs
+# .vscode
+# .idea
+
+coverage/
+**/test/**/secrets.json
+
+kubeconfig.yaml
+*.pem
+*.key
+*.cert
+
+# # ignore generated cds files
+@cds-models
+jest_html_reporters.html
+junit.xml
+jest-html-reporters-attach/jest_html_reporters/index.js
+jest-html-reporters-attach/jest_html_reporters/result.js
+
+.devcontainer/
+mine.txt
+mine.sh
+artifactory-regsecret.yaml
+cleanup.sh
+package-lock.json
+./test/http/certs/
+secret.json

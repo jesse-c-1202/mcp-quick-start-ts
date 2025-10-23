@@ -1,0 +1,25 @@
+{
+  "name": "mcp-quick-start-ts",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "ts-node srv/chatWithMCP.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.20.1",
+    "@sap-ai-sdk/foundation-models": "^2.1.0",
+    "@sap-ai-sdk/orchestration": "^2.1.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "zod": "^3"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+    "inlineSources": true,
+    "inlineSourceMap": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "#cds-models/*": ["./srv/@cds-models/*/index.ts"]
+    },
+    "types": ["node"],
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["srv/**/*", "test/**/*", "update_settings/**/*"]
+}
